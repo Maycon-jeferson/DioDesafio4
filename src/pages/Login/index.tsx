@@ -25,11 +25,8 @@ const Login = () => {
     resolver: yupResolver(schema),
     mode: "onBlur",
     defaultValues,
-    reValidateMode: "onChange",
+    reValidateMode: "onChange"
   });
-
-  console.log(isValid)
-
   return (
     <Container>
       <LoginContainer>
@@ -41,7 +38,7 @@ const Login = () => {
             placeholder="Email"
             control={control}
             errorMessage={errors?.email?.message}
-          />
+            />
           <Spacing />
           <Input
             name="password"
@@ -49,13 +46,12 @@ const Login = () => {
             placeholder="Senha"
             control={control}
             errorMessage={errors?.password?.message}
-          />
+            />
           <Spacing />
-          <Button title="Entrar" />
+          <Button title={isValid? "Entrar" : "Preencha os campos"} disabled={isValid}  isValid={isValid} debug={'1'}></Button>
         </Column>
       </LoginContainer>
     </Container>
   );
 };
-
 export default Login;
