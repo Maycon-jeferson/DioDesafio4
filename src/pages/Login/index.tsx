@@ -48,7 +48,12 @@ const Login = () => {
             errorMessage={errors?.password?.message}
             />
           <Spacing />
-          <Button title={isValid? "Entrar" : "Preencha os campos"} disabled={isValid}  isValid={isValid} debug={'1'}></Button>
+          <Button title={isValid? "Entrar" : "Preencha os campos"} disabled={isValid}></Button>
+          {/* isValid é uma variavel booleana, que altera seu valor comforme o estado dos erros no form
+              disabled é uma condicao do proprio button no css, eu altero seu valor de acordo com o estado da variavel isValid, disabled aceita apenas boolean
+
+              basicamente coloquei uma condicional de verifica se isValid está verdadero ou falso, assim alterando o texto no butão, bem como altera o estado de Dissables quando tiver algum erro no formulario
+               */}
         </Column>
       </LoginContainer>
     </Container>
